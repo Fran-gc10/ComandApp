@@ -58,8 +58,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        //Desactivamos cookies ya que enviamos un token
-        // cada vez que hacemos una petición
+
         http.cors().and().csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/auth/**","/swagger-ui.html", "/swagger-ui/**", "/swagger-ui.html", "/swagger-resources/**", "/v2/api-docs").permitAll()

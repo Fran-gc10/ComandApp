@@ -13,7 +13,6 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -41,7 +40,7 @@ public class SwaggerConfig {
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("Netflix")
+                .groupName("comandApp")
                 .apiInfo(apiInfo())
                 .securityContexts(securityContexts())
                 .securitySchemes(Arrays.asList(apiKeys()))
@@ -52,8 +51,6 @@ public class SwaggerConfig {
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("Netflix").description("TVShow Api")
-                .termsOfServiceUrl("https://www.everis.com").license("everis").licenseUrl("https://www.everis.com")
-                .version("1.0").build();
+        return new ApiInfoBuilder().title("comandApp").description("comandApp Api").build();
     }
 }

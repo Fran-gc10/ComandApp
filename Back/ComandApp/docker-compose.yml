@@ -1,4 +1,4 @@
-version: '4'
+version: '3'
 
 services:
   db:
@@ -10,7 +10,7 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: pass
     ports:
-      - "3306:3306"
+      - "3336:3306"
     volumes:
       - F:/Documentos/VolumenesDocker/dbdata:/var/lib/mysql
   phpmyadmin:

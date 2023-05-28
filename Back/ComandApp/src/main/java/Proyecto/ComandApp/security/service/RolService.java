@@ -3,9 +3,9 @@ package Proyecto.ComandApp.security.service;
 import Proyecto.ComandApp.security.entity.Rol;
 import Proyecto.ComandApp.security.enums.RolNombre;
 import Proyecto.ComandApp.security.repository.RolRepository;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
