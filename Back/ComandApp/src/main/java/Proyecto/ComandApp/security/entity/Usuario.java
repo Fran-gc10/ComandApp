@@ -1,17 +1,20 @@
 package Proyecto.ComandApp.security.entity;
 
 
+import Proyecto.ComandApp.entities.Mesa;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
+@Table(name = "USUARIOS")
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idUsuario;
+    private Long idUsuario;
 
     @NotNull
     private String nombre;
@@ -30,6 +33,9 @@ public class Usuario {
             inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private Set<Rol> roles = new HashSet<>();
 
+    @ManyToMany(mappedBy = "usuarios")
+    private List<Mesa> mesas;
+
     public Usuario() {
     }
 
@@ -43,11 +49,11 @@ public class Usuario {
         this.password = password;
     }
 
-    public int getIdUsuario() {
+    public Long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -89,5 +95,13 @@ public class Usuario {
 
     public void setRoles(Set<Rol> roles) {
         this.roles = roles;
+    }
+
+    public List<Mesa> getMesas() {
+        return mesas;
+    }
+
+    public void setMesas(List<Mesa> mesas) {
+        this.mesas = mesas;
     }
 }
