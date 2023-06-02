@@ -36,6 +36,4 @@ public class Producto implements Serializable {
     private List<Mesa> mesas;
 
 
-
-
 }
