@@ -8,6 +8,7 @@ import Proyecto.ComandApp.repositories.ProductoRepository;
 import Proyecto.ComandApp.services.ProductoService;
 import Proyecto.ComandApp.utils.constants.ExceptionConstants;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -19,6 +20,7 @@ public class ProductoServiceImpl implements ProductoService {
 
     private final ModelMapper modelMapper=new ModelMapper();
 
+    @Autowired
     private ProductoRepository prodRepository;
 
 
@@ -29,11 +31,13 @@ public class ProductoServiceImpl implements ProductoService {
 
     @Override
     public ProductoRest getProdById(Long prodId) throws ComandAppException {
-        try {
-            return modelMapper.map(prodRepository.findById(prodId), ProductoRest.class);
-        } catch (EntityNotFoundException entityNotFoundException) {
-            throw new NotFoundException(entityNotFoundException.getMessage());
-        }
+//        try {
+//            return modelMapper.map(prodRepository.getOne(prodId), ProductoRest.class);
+//        } catch (EntityNotFoundException entityNotFoundException) {
+//            throw new NotFoundException(entityNotFoundException.getMessage());
+//        }
+        Producto prod=prodRepository.findById(prodId).orElseThrow(() -> new NotFoundException(ExceptionConstants.MESSAGE_INEXISTENT_PROD));
+        return modelMapper.map(prod, ProductoRest.class);
     }
 
     @Override
@@ -44,7 +48,7 @@ public class ProductoServiceImpl implements ProductoService {
         }
         Producto prod=Producto.builder().tipo(prodRest.getTipo()).nombre(prodRest.getNombre()).cantidad(prodRest.getCantidad()).precio(prodRest.getPrecio()).build();
         prodRepository.save(prod);
-        return null;
+        return modelMapper.map(optionalProd,ProductoRest.class);
     }
 
     @Override

@@ -1,6 +1,5 @@
 package Proyecto.ComandApp.json;
 
-import Proyecto.ComandApp.entities.Mesa;
 import Proyecto.ComandApp.security.entity.Rol;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
@@ -24,6 +23,6 @@ public class UsuarioRest implements Serializable {
     private String email;
     private String password;
     private Set<Rol> roles = new HashSet<>();
-    private List<Mesa> mesas;
+    private List<MesaRest> mesas;
 
 }

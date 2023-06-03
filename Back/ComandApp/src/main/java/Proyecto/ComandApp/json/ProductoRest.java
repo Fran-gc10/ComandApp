@@ -1,6 +1,6 @@
 package Proyecto.ComandApp.json;
 
-import Proyecto.ComandApp.entities.Mesa;
+import Proyecto.ComandApp.enums.TipoProd;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import java.io.Serializable;
@@ -16,10 +16,10 @@ public class ProductoRest implements Serializable {
 
     private static final long serialVersionUID = -2603219680568965288L;
     private Long id;
-    private String tipo;
+    private TipoProd tipo;
     private String nombre;
     private int cantidad;
-    private int precio;
-    private List<Mesa> mesas;
+    private float precio;
+    private List<MesaRest> mesas;
 
 }

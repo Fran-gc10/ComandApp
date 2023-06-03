@@ -1,5 +1,6 @@
 package Proyecto.ComandApp.entities;
 
+import Proyecto.ComandApp.enums.TipoProd;
 import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
@@ -20,8 +21,8 @@ public class Producto implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "TIPO")     //TODO --> quizas enum mejor
-    private String tipo;
+    @Column(name = "TIPO")
+    private TipoProd tipo;
 
     @Column(name = "NOMBRE")
     private String nombre;
@@ -30,10 +31,9 @@ public class Producto implements Serializable {
     private int cantidad;
 
     @Column(name="PRECIO")
-    private int precio;
+    private float precio;
 
     @ManyToMany(mappedBy = "productos")
     private List<Mesa> mesas;
-
 
 }

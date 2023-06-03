@@ -1,9 +1,8 @@
 package Proyecto.ComandApp.json;
 
-import Proyecto.ComandApp.entities.Producto;
-import Proyecto.ComandApp.security.entity.Usuario;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -20,6 +19,6 @@ public class MesaRest implements Serializable {
     private Long id;
     private String numero;
     private boolean estado;
-    private List<Producto> productos;
-    private List<Usuario> usuarios;
+    private List<ProductoRest> productos;
+    private List<UsuarioRest> usuarios;
 }
