@@ -1,0 +1,32 @@
+<div class="container-full">
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="form form-login">
+    <h1>Login de Usuario</h1>
+    <ng-container *ngIf="invalid">
+      <div class="alert alert-danger">
+        Usuario o contraseña incorrecta.
+      </div>
+    </ng-container>
+    <div class="form-control">
+      <input name="username" type="text" formControlName="username" placeholder="Nombre de usuario" />
+      <div *ngIf="username && (username.invalid  || username.dirty) && displayError.username">
+        <small *ngIf="username.errors?.['required']" class="text-danger">
+          Nombre de usuario obligatorio.
+        </small>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <input name="password" type="password" formControlName="password" placeholder="Password" />
+      <div *ngIf="password && (password.invalid || password.dirty) && displayError.password">
+        <small *ngIf="password.errors?.['required']">
+          Contraseña obligatoria
+        </small>
+      </div>
+    </div>
+
+    <div class="align-center">
+      <button type="submit" class="btn btn-success btn-login">Login</button>
+    </div>
+    <a [routerLink]="['/registrarse']">Registrate</a>
+  </form>
+</div>

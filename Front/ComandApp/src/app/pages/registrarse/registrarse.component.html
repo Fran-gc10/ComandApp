@@ -1,0 +1,48 @@
+<div class="container-full">
+  <form (ngSubmit)="onSubmit()" [formGroup]="signUpForm" class="form form-login">
+    <h1>Crea tu cuenta</h1>
+    <div class="form-control">
+      <input name="name" type="text" formControlName="name" placeholder="Nombre Completo" />
+      <div *ngIf="name && (name.invalid || name.dirty) && displayErrors">
+        <small *ngIf="name.errors?.['required']">
+          Nombre obligatorio
+        </small>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <input name="username" type="text" formControlName="username" placeholder="Nombre de usuario" />
+      <div *ngIf="username && (username.invalid || username.dirty) && displayErrors">
+        <small *ngIf="username.errors?.['required']">
+          Nombre de usuario obligatorio
+        </small>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <input name="email" type="email" formControlName="email" placeholder="Email" />
+      <div *ngIf="email && (email.invalid  || email.dirty) && displayErrors">
+        <small *ngIf="email.errors?.['required']" class="text-danger">
+          Email obligatorio.
+        </small>
+        <small *ngIf="email.errors?.['pattern']" class="text-danger">
+          Por favor, ponga un email válido.
+        </small>
+      </div>
+    </div>
+
+    <div class="form-control">
+      <input name="password" type="password" formControlName="password" placeholder="Password" />
+      <div *ngIf="password && (password.invalid || password.dirty) && displayErrors">
+        <small *ngIf="password.errors?.['required']">
+          Contraseña obligatoria
+        </small>
+      </div>
+    </div>
+
+    <div class="align-center">
+      <button type="submit" class="btn btn-success btn-login">Registrarse</button>
+    </div>
+    <a [routerLink]="['/login']">¿Ya tienes una cuenta?</a>
+  </form>
+</div>
