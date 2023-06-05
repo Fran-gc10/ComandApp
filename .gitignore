@@ -1,5 +1,5 @@
 *HELP.md
-**/target/
+Back/ComandApp/target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -14,7 +14,7 @@
 *.sts4-cache
 
 ### IntelliJ IDEA ###
-**/*.idea
+Back/ComandApp/*.idea
 **/*.iws
 **/*.iml
 **/*.ipr
