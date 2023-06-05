@@ -31,11 +31,6 @@ public class ProductoServiceImpl implements ProductoService {
 
     @Override
     public ProductoRest getProdById(Long prodId) throws ComandAppException {
-//        try {
-//            return modelMapper.map(prodRepository.getOne(prodId), ProductoRest.class);
-//        } catch (EntityNotFoundException entityNotFoundException) {
-//            throw new NotFoundException(entityNotFoundException.getMessage());
-//        }
         Producto prod=prodRepository.findById(prodId).orElseThrow(() -> new NotFoundException(ExceptionConstants.MESSAGE_INEXISTENT_PROD));
         return modelMapper.map(prod, ProductoRest.class);
     }
