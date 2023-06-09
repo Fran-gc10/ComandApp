@@ -23,6 +23,5 @@ public class UsuarioRest implements Serializable {
     private String email;
     private String password;
     private Set<Rol> roles = new HashSet<>();
-    private List<MesaRest> mesas;
 
 }

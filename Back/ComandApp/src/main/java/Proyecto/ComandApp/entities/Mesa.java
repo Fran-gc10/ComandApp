@@ -23,8 +23,6 @@ public class Mesa implements Serializable {
     @Column(name="NUMERO")
     private String numero;
 
-    @Column(name="ESTADO")
-    private boolean estado;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "PRODUCTOS_MESA",
@@ -32,9 +30,4 @@ public class Mesa implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "PRODUCTO_ID", nullable=false))
     private List<Producto> productos;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "USUARIO_MESA",
-            joinColumns = @JoinColumn(name = "MESA_ID", nullable=false),
-            inverseJoinColumns = @JoinColumn(name = "USUARIO_ID", nullable=false))
-    private List<Usuario> usuarios;
 }

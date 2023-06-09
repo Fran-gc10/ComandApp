@@ -33,8 +33,6 @@ public class Usuario {
             inverseJoinColumns = @JoinColumn(name = "rol_id"))
     private Set<Rol> roles = new HashSet<>();
 
-    @ManyToMany(mappedBy = "usuarios")
-    private List<Mesa> mesas;
 
     public Usuario() {
     }
@@ -97,11 +95,4 @@ public class Usuario {
         this.roles = roles;
     }
 
-    public List<Mesa> getMesas() {
-        return mesas;
-    }
-
-    public void setMesas(List<Mesa> mesas) {
-        this.mesas = mesas;
-    }
 }

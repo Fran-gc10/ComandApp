@@ -12,21 +12,6 @@ services:
     ports:
       - "3336:3306"
     volumes:
-      - dbdata:/Documentos/VolumenesDocker/dbdata:/var/lib/mysql
-  phpmyadmin:
-    image: phpmyadmin
-    container_name: pma
-    links:
-      - db
-    environment:
-      PMA_HOST: db
-      PMA_PORT: 3306
-      PMA_ARBITRARY: 1
-    restart: always
-    ports:
-      - "8081:80"
-    volumes:
-      - dbdata:/Documentos/VolumenesDocker/pma/config/.user.inc.php:/etc/phpmyadmin/config/.user.inc.php
+      - dbdata:/var/lib/mysql
 volumes:
   dbdata:
-  pma:

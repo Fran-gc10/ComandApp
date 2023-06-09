@@ -18,7 +18,5 @@ public class MesaRest implements Serializable {
 
     private Long id;
     private String numero;
-    private boolean estado;
     private List<ProductoRest> productos;
-    private List<UsuarioRest> usuarios;
 }
