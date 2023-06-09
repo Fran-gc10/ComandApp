@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(RestConstants.APPLICATION_NAME + RestConstants.PRODUCTO)
+@RequestMapping(RestConstants.PRODUCTO)
 public class ProductoControllerImpl implements ProductoController {
 
     @Autowired

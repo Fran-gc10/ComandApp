@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(RestConstants.APPLICATION_NAME + RestConstants.MESA)
+@RequestMapping(RestConstants.MESA)
 public class MesaControllerImpl implements MesaController {
 
     @Autowired
