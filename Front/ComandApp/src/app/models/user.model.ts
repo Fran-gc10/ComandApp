@@ -1,9 +1,9 @@
 export default class User {
   public constructor(
-    public username: string,
+    public nombreUsuario: string,
     public email: string,
-    public name: string,
+    public nombre: string,
     public password: string,
-    public roles: string[]
+    public roles?: string[]
   ) {}
 }

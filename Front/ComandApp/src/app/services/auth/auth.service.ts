@@ -21,7 +21,7 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<any> {
-    return this.http.post(this.authUrl + '/login', { email: username, password }).pipe(
+    return this.http.post(this.authUrl + '/login', { nombreUsuario: username, password }).pipe(
       map((data: any) => {
         this.setToken(data.token);
         this.router.navigateByUrl('home').catch((err) => console.log(err));

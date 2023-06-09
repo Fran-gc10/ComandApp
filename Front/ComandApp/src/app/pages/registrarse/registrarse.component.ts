@@ -45,9 +45,8 @@ export class RegistrarseComponent {
         .createUser({
           email: this.email.value,
           password: this.password.value,
-          name: this.name.value,
-          username: this.username.value,
-          roles: ['ROLE_USER'],
+          nombre: this.name.value,
+          nombreUsuario: this.username.value,
         })
         .subscribe({
           next: () => {

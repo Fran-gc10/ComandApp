@@ -1,3 +1,3 @@
 export const environment = {
-  host: ""
+  host: "http://localhost:8088/comandApp"
 };
