@@ -1,6 +1,7 @@
 package Proyecto.ComandApp.services.impl;
 
 import Proyecto.ComandApp.entities.Producto;
+import Proyecto.ComandApp.enums.TipoProd;
 import Proyecto.ComandApp.exceptions.ComandAppException;
 import Proyecto.ComandApp.exceptions.NotFoundException;
 import Proyecto.ComandApp.json.ProductoRest;
@@ -27,6 +28,19 @@ public class ProductoServiceImpl implements ProductoService {
     @Override
     public List<ProductoRest> getProductos() throws ComandAppException {
         return prodRepository.findAll().stream().map(prod -> modelMapper.map(prod, ProductoRest.class)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<String> getTipos() throws ComandAppException {
+        List<String> listaTipos=prodRepository.findAll().stream()
+                .map(Producto::getTipo).distinct()
+                .map(tipoProd -> modelMapper.map(tipoProd,String.class)).collect(Collectors.toList());
+        return listaTipos;
+    }
+
+    @Override
+    public List<ProductoRest> getProdByTipo(String tipo) throws ComandAppException {
+        return prodRepository.findByTipo(TipoProd.valueOf(tipo)).stream().map(prod->modelMapper.map(prod, ProductoRest.class)).collect(Collectors.toList());
     }
 
     @Override
@@ -74,5 +88,7 @@ public class ProductoServiceImpl implements ProductoService {
         prodRepository.deleteById(prodId);
         return modelMapper.map(optionalProd,ProductoRest.class);
     }
+
+
 
 }

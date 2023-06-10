@@ -11,4 +11,7 @@ public interface ProductoController {
     ComandAppResponse<ProductoRest> updateProd(ProductoRest prodRest)throws ComandAppException;
     ComandAppResponse<ProductoRest> deleteProdById (Long prodId) throws ComandAppException;
     ComandAppResponse<List<ProductoRest>> getProductos()throws ComandAppException;
+    ComandAppResponse<List<String>> getTipos()throws ComandAppException;
+    ComandAppResponse<List<ProductoRest>> getProdByTipo(String tipo)throws ComandAppException;
+
 }

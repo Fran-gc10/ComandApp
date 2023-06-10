@@ -12,4 +12,6 @@ public interface ProductoService {
     ProductoRest updateProd(ProductoRest prodRest)throws ComandAppException;
     ProductoRest deleteProdById (Long prodId) throws ComandAppException;
     List<ProductoRest> getProductos()throws ComandAppException;
+    List<String> getTipos()throws ComandAppException;
+    List<ProductoRest> getProdByTipo(String tipo)throws ComandAppException;
 }

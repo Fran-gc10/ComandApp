@@ -5,6 +5,8 @@ public class RestConstants {
     public static final String APPLICATION_NAME = "/comandApp";
     public static final String PRODUCTO = "/Producto";
     public static final String MESA = "/Mesa";
+    public static final String GET_TIPOS = "/Tipos";
+    public static final String PROD_BY_TIPO = "ProdByTipo/{tipo}";
     public static final String COBRAR_MESA = "/CobrarMesa/{mesaId}";
     public static final String BORRAR_COMANDAS = "/BorrarComandas/{mesaId}";
     public static final String COMANDAR = "/Comandar/{mesaId}";
