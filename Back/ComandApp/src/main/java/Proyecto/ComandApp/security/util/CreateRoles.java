@@ -9,26 +9,26 @@ import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
-@Component
-public class CreateRoles implements CommandLineRunner {
-
-    @Autowired
-    RolService rolService;
-
-    @Override
-    public void run(String... args) {
-        Rol rolAdmin = new Rol(RolNombre.ROLE_ADMIN);
-        Rol rolUser = new Rol(RolNombre.ROLE_USER);
-
-        Optional<Rol> admin = rolService.getByRolNombre(rolAdmin.getRolNombre());
-        Optional<Rol> user = rolService.getByRolNombre(rolAdmin.getRolNombre());
-
-        if(!admin.isPresent()){
-            rolService.save(rolAdmin);
-        }
-
-        if(!user.isPresent()){
-            rolService.save(rolUser);
-        }
-    }
-}
+//@Component
+//public class CreateRoles implements CommandLineRunner {
+//
+//    @Autowired
+//    RolService rolService;
+//
+//    @Override
+//    public void run(String... args) {
+//        Rol rolAdmin = new Rol(RolNombre.ROLE_ADMIN);
+//        Rol rolUser = new Rol(RolNombre.ROLE_USER);
+//
+//        Optional<Rol> admin = rolService.getByRolNombre(rolAdmin.getRolNombre());
+//        Optional<Rol> user = rolService.getByRolNombre(rolAdmin.getRolNombre());
+//
+//        if(!admin.isPresent()){
+//            rolService.save(rolAdmin);
+//        }
+//
+//        if(!user.isPresent()){
+//            rolService.save(rolUser);
+//        }
+//    }
+//}

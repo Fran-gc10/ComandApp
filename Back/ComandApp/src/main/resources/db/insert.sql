@@ -32,11 +32,18 @@ INSERT INTO PRODUCTOS(ID, CANTIDAD, NOMBRE, PRECIO, TIPO) VALUES
     (24, 100, 'Tarta de zanahoria', 4.50, 2),
     (25, 100, 'Milhojas', 4.50, 2),
     (26, 100, 'Melocoton', 4.50, 2),
-    (26, 100, 'Piña', 4.50, 2),
+    (27, 100, 'Piña', 4.50, 2),
     (28, 100, 'Helado', 4.50, 2);
 
-INSERT INTO USUARIOS(ID, EMAIL, NOMBRE, NOMBRE_USUARIO, PASSWORD) VALUES
-	(1, "admin@admin", 'admin', "admin", "admin");
+INSERT INTO PRODUCTOS_MESA(MESA_ID ,PRODUCTO_ID) VALUES
+	(1, 1),
+    (1, 10),
+    (1, 25),
+    (1, 6),
+    (1, 28),
+    (1, 1),
+    (1, 22),
+    (1, 10),
+    (1, 14);
 
-INSERT INTO USUARIO_ROL(ID_USUARIO ,ROL_ID) VALUES
-	(1, 1);
+
