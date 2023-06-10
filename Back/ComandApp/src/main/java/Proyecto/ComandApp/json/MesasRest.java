@@ -1,6 +1,5 @@
 package Proyecto.ComandApp.json;
 
-import Proyecto.ComandApp.enums.TipoProd;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
@@ -13,14 +12,10 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ProductoRest implements Serializable {
+public class MesasRest implements Serializable {
 
-    private static final long serialVersionUID = -2603219680568965288L;
+    private static final long serialVersionUID = 180802329613616000L;
+
     private Long id;
-    private TipoProd tipo;
-    private String nombre;
-    private int cantidad;
-    private float precio;
-
-
+    private String numero;
 }

@@ -5,6 +5,7 @@ import Proyecto.ComandApp.entities.Producto;
 import Proyecto.ComandApp.exceptions.ComandAppException;
 import Proyecto.ComandApp.exceptions.NotFoundException;
 import Proyecto.ComandApp.json.MesaRest;
+import Proyecto.ComandApp.json.MesasRest;
 import Proyecto.ComandApp.json.ProductoRest;
 import Proyecto.ComandApp.repositories.MesaRepository;
 import Proyecto.ComandApp.services.MesaService;
@@ -62,7 +63,7 @@ public class MesaServiceImpl implements MesaService {
     }
 
     @Override
-    public List<MesaRest> getMesas() throws ComandAppException {
-        return mesaRepository.findAll().stream().map(mesa -> modelMapper.map(mesa, MesaRest.class)).collect(Collectors.toList());
+    public List<MesasRest> getMesas() throws ComandAppException {
+        return mesaRepository.findAll().stream().map(mesa -> modelMapper.map(mesa, MesasRest.class)).collect(Collectors.toList());
     }
 }

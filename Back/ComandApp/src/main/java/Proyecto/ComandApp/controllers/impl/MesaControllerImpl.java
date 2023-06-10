@@ -3,6 +3,7 @@ package Proyecto.ComandApp.controllers.impl;
 import Proyecto.ComandApp.controllers.MesaController;
 import Proyecto.ComandApp.exceptions.ComandAppException;
 import Proyecto.ComandApp.json.MesaRest;
+import Proyecto.ComandApp.json.MesasRest;
 import Proyecto.ComandApp.json.ProductoRest;
 import Proyecto.ComandApp.responses.ComandAppResponse;
 import Proyecto.ComandApp.services.MesaService;
@@ -33,7 +34,7 @@ public class MesaControllerImpl implements MesaController {
     @Override
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ComandAppResponse<List<MesaRest>> getMesas() throws ComandAppException {
+    public ComandAppResponse<List<MesasRest>> getMesas() throws ComandAppException {
         return new ComandAppResponse<>(CommonConstants.SUCCESS, String.valueOf(HttpStatus.OK), CommonConstants.OK,
                 mesaService.getMesas());
     }

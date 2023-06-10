@@ -1,6 +1,5 @@
 package Proyecto.ComandApp.entities;
 
-import Proyecto.ComandApp.security.entity.Usuario;
 import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
@@ -22,7 +21,6 @@ public class Mesa implements Serializable {
 
     @Column(name="NUMERO")
     private String numero;
-
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "PRODUCTOS_MESA",

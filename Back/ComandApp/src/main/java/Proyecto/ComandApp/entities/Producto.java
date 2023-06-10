@@ -1,6 +1,7 @@
 package Proyecto.ComandApp.entities;
 
 import Proyecto.ComandApp.enums.TipoProd;
+import Proyecto.ComandApp.json.MesaRest;
 import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;
@@ -33,7 +34,7 @@ public class Producto implements Serializable {
     @Column(name="PRECIO")
     private float precio;
 
-    @ManyToMany(mappedBy = "productos")
+    @ManyToMany(mappedBy = "productos", fetch = FetchType.LAZY)
     private List<Mesa> mesas;
 
 }
