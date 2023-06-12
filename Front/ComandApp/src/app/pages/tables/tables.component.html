@@ -1,0 +1,6 @@
+<app-logout></app-logout>
+<div class="tables">
+  <a *ngFor="let table of tables$ | async" class="table" href="/mesa/{{ table.id }}" class="btn-menu">
+    Mesa {{ table.number}}
+  </a>
+</div>

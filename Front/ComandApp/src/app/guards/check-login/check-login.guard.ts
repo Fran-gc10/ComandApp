@@ -7,7 +7,7 @@ export const checkLoginGuard: CanActivateFn = (route, state) => {
   const authService: AuthService = inject(AuthService);
   const isNotLogged = computed(() => {
     const logged = authService.logged();
-    if (logged) router.navigate(['/home']).catch((err) => console.log(err));
+    if (logged) router.navigate(['/mesas']).catch((err) => console.log(err));
     return !logged;
   });
   return isNotLogged();

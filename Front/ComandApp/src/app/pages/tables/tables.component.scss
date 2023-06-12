@@ -1,0 +1,12 @@
+.tables {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  .table {
+    background-color: #444;
+    padding: 1rem;
+    color: white;
+    text-decoration: none;
+  }
+}

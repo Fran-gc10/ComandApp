@@ -1,0 +1,43 @@
+<div class="table-menu">
+  <aside class="table-menu__aside">
+    <div class="table-menu__aside__top">
+      <div class="table-menu__aside__header">
+        <h2>Mesa Nº {{ tableNumber }}</h2>
+      </div>
+      <ul class="table-menu__aside__commanded-products">
+        <li *ngFor="let product of commandedProducts">
+          {{ product.name }} - {{ formatCurrency(product.price) }}
+        </li>
+        <li *ngFor="let product of productsToCommand; let i = index">
+          {{ product.name }} - {{ formatCurrency(product.price) }}
+          <button (click)="deleteProduct(i)" type="button" class="btn-delete-product">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="table-menu__aside__actions">
+      <button (click)="chargeTable()" class="btn-secondary" type="button">Cobrar</button>
+      <button (click)="command()" class="btn-secondary" type="button">Comandar</button>
+    </div>
+  </aside>
+
+  <div class="table-menu__main">
+    <div class="table-menu__main__buttons">
+      <app-mesas-link></app-mesas-link>
+      <button class="btn-primary" *ngIf="viewType === 'products'" type="button"
+        (click)="viewType = 'product-types'">Productos</button>
+      <app-logout></app-logout>
+    </div>
+
+
+    <div class="table-menu__main__product-types" *ngIf="viewType === 'product-types'">
+      <button *ngFor="let type of productTypes$ | async" (click)="selectProductCategory(type)">{{ type }}</button>
+    </div>
+
+    <div class="table-menu__main__products" *ngIf="viewType === 'products'">
+      <button *ngFor="let product of products$ | async" (click)="addProductToCommands(product)" class="btn-menu">{{
+        product.name }}</button>
+    </div>
+  </div>
+</div>

@@ -24,7 +24,7 @@ export class AuthService {
     return this.http.post(this.authUrl + '/login', { nombreUsuario: username, password }).pipe(
       map((data: any) => {
         this.setToken(data.token);
-        this.router.navigateByUrl('home').catch((err) => console.log(err));
+        this.router.navigateByUrl('mesas').catch((err) => console.log(err));
         this.logged.set(true);
       })
     );
