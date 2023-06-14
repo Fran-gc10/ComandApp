@@ -15,7 +15,6 @@ public class UsuarioMain implements UserDetails {
     private String password;
     private Collection<? extends GrantedAuthority> authorities;
 
-    //Constructor
     public UsuarioMain(String nombre, String usuario, String email, String password, Collection<? extends GrantedAuthority> authorities) {
         this.nombre = nombre;
         this.usuario = usuario;

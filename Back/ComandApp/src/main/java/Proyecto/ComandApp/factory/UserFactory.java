@@ -1,5 +1,7 @@
 package Proyecto.ComandApp.factory;
 
+import Proyecto.ComandApp.repositories.MesaRepository;
+import Proyecto.ComandApp.repositories.ProductoRepository;
 import Proyecto.ComandApp.security.entity.Rol;
 import Proyecto.ComandApp.security.entity.Usuario;
 import Proyecto.ComandApp.security.enums.RolNombre;
@@ -22,6 +24,11 @@ import java.util.Set;
 public class UserFactory {
     @Autowired
     private UsuarioRepository usuarioRepository;
+    @Autowired
+    private MesaRepository mesaRepository;
+
+    @Autowired
+    private ProductoRepository productoRepository;
 
     @Autowired
     private RolService rolService;
@@ -47,7 +54,6 @@ public class UserFactory {
             Set<Rol> roles = new HashSet<>();
             roles.add(rolService.getByRolNombre(RolNombre.ROLE_USER).get());
             roles.add(rolService.getByRolNombre(RolNombre.ROLE_ADMIN).get());
-            System.out.println("caca");
 
             Usuario admin = new Usuario();
             admin.setNombre("admin");
@@ -60,14 +66,14 @@ public class UserFactory {
     }
 
     public void executeScript() throws SQLException {
-        try {
-            ClassPathResource scriptResource = new ClassPathResource("db/insert.sql");
-            ScriptUtils.executeSqlScript(dataSource.getConnection(), scriptResource);
-            System.out.println("Script ejecutado exitosamente");
-        } catch (Exception e) {
-            // Manejar cualquier excepción que pueda ocurrir durante la ejecución del script SQL
-            e.printStackTrace();
-        }
+       if(mesaRepository.findAll().isEmpty() && productoRepository.findAll().isEmpty()){
+           try {
+               ClassPathResource scriptResource = new ClassPathResource("db/insert.sql");
+               ScriptUtils.executeSqlScript(dataSource.getConnection(), scriptResource);
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
+       }
     }
 
     public void crearRoles() {

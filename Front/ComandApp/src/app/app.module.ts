@@ -14,6 +14,8 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
 import { TableComponent } from './pages/table/table.component';
 import { MesasLinkComponent } from './components/mesas-link/mesas-link.component';
+import { AdminLinkComponent } from './components/admin-link/admin-link/admin-link.component';
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { MesasLinkComponent } from './components/mesas-link/mesas-link.component
     LogoutComponent,
     TableComponent,
     MesasLinkComponent,
+    AdminLinkComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

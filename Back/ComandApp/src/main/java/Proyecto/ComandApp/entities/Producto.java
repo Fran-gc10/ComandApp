@@ -1,7 +1,6 @@
 package Proyecto.ComandApp.entities;
 
 import Proyecto.ComandApp.enums.TipoProd;
-import Proyecto.ComandApp.json.MesaRest;
 import lombok.*;
 import javax.persistence.*;
 import java.io.Serializable;

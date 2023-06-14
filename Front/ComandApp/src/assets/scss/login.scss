@@ -1,0 +1,65 @@
+.container-authentication {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  h1 {
+    text-align: center;
+    font-size: 3.7rem;
+    color: white;
+  }
+
+  .form.form-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+
+    background-color: #1d2b38;
+    padding: 20%;
+    border-radius: 10%;
+    box-shadow: 0 0 0.5rem black;
+
+    .alert {
+      margin-bottom: 1rem;
+    }
+
+    .form-control {
+      display: flex;
+      width: 100%;
+      input {
+        width: 100%;
+        padding: 5%;
+        margin: 0px;
+      }
+    }
+
+    .btn-login {
+      padding: .5rem 1.5rem;
+      font-weight: bold;
+    }
+
+    a {
+      color: white;
+    }
+  }
+
+  @media (max-width: 550px) {
+    & {
+      .form.form-login {
+        max-width: 12rem;
+      }
+    }
+  }
+
+  @media (min-width: 550px) {
+    & {
+      .form.form-login {
+        min-width: 20rem;
+      }
+    }
+  }
+}

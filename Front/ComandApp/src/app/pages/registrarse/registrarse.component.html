@@ -1,6 +1,6 @@
-<div class="container-full">
+<div class="container-authentication">
+  <h1>Crea tu cuenta</h1>
   <form (ngSubmit)="onSubmit()" [formGroup]="signUpForm" class="form form-login">
-    <h1>Crea tu cuenta</h1>
     <div class="form-control">
       <input name="name" type="text" formControlName="name" placeholder="Nombre Completo" />
       <div *ngIf="name && (name.invalid || name.dirty) && displayErrors">

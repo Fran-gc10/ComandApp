@@ -1,12 +1,24 @@
-.tables {
-  margin-top: 1rem;
+.container-tables-link {
   display: flex;
+  justify-content: space-between;
+  margin: 3rem 5rem 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tables {
+  display: flex;
+  align-self: center;
+  margin: 4rem;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 1rem;
   .table {
     background-color: #444;
-    padding: 1rem;
+    padding: 3rem;
     color: white;
     text-decoration: none;
+    font-size: 2rem;
   }
 }

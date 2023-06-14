@@ -1,10 +1,12 @@
 import { Component, OnInit, Signal, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, filter, map, tap } from 'rxjs';
+import { Observable, filter, map, mergeMap, tap } from 'rxjs';
 import Product from 'src/app/models/product.model';
 import TableProduct from 'src/app/models/table-product.model';
+import { AlertService } from 'src/app/services/alert/alert.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import { TableService } from 'src/app/services/table/table.service';
+import { SweetAlertResult } from 'sweetalert2';
 
 @Component({
   selector: 'app-table',
@@ -23,7 +25,8 @@ export class TableComponent implements OnInit {
   public constructor(
     private route: ActivatedRoute,
     private tableService: TableService,
-    private productService: ProductService
+    private productService: ProductService,
+    private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -69,13 +72,36 @@ export class TableComponent implements OnInit {
   }
 
   chargeTable() {
-    this.tableService
-      .chargeTable(this.tableId)
+    const productPrices = this.commandedProducts.map((pro) => pro.price);
+    const totalToPay = productPrices
+      .reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+      .toFixed(2);
+
+    this.alertService
+      .custom({
+        title: `Cobrar Mesa Nº${this.tableNumber}`,
+        text: `El total a cobrar es ${totalToPay}€`,
+        icon: 'warning',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Cobrar',
+        reverseButtons: true,
+        customClass: {
+          confirmButton: 'btn-charge',
+        },
+      })
       .pipe(
-        tap((table) => {
-          this.tableNumber = table.number;
-          this.productsToCommand = [];
-          this.commandedProducts = table.products;
+        mergeMap((result: SweetAlertResult) => {
+          if (result.isConfirmed) {
+            return this.tableService.chargeTable(this.tableId).pipe(
+              tap((table) => {
+                this.tableNumber = table.number;
+                this.productsToCommand = [];
+                this.commandedProducts = table.products;
+              })
+            );
+          }
+          return this.alertService.error('Cancelado', 'No se ha cobrao na :)');
         })
       )
       .subscribe();

@@ -1,6 +1,9 @@
-<app-logout></app-logout>
+<div class="container-tables-link">
+  <app-admin-link></app-admin-link>
+  <app-logout></app-logout>
+</div>
 <div class="tables">
-  <a *ngFor="let table of tables$ | async" class="table" href="/mesa/{{ table.id }}" class="btn-menu">
+  <a *ngFor="let table of tables$ | async" class="btn-menu table" href="/mesa/{{ table.id }}">
     Mesa {{ table.number}}
   </a>
 </div>

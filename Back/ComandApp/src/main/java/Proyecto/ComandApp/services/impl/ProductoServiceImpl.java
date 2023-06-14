@@ -55,7 +55,7 @@ public class ProductoServiceImpl implements ProductoService {
         if (optionalProd.isPresent()){
             throw new NotFoundException(ExceptionConstants.MESSAGE_EXISTENT_PROD);
         }
-        Producto prod=Producto.builder().tipo(prodRest.getTipo()).nombre(prodRest.getNombre()).cantidad(prodRest.getCantidad()).precio(prodRest.getPrecio()).build();
+        Producto prod=Producto.builder().tipo(prodRest.getTipo()).nombre(prodRest.getNombre()).precio(prodRest.getPrecio()).build();
         prodRepository.save(prod);
         return modelMapper.map(optionalProd,ProductoRest.class);
     }
@@ -70,7 +70,6 @@ public class ProductoServiceImpl implements ProductoService {
         }
         prod.setTipo(prodRest.getTipo());
         prod.setNombre(prodRest.getNombre());
-        prod.setCantidad(prodRest.getCantidad());
         prod.setPrecio(prodRest.getPrecio());
         prodRepository.save(prod);
 

@@ -1,11 +1,9 @@
 package Proyecto.ComandApp.json;
 
 import Proyecto.ComandApp.enums.TipoProd;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Getter
 @Setter

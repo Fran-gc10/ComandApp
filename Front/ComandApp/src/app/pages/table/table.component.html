@@ -30,14 +30,18 @@
       <app-logout></app-logout>
     </div>
 
-
-    <div class="table-menu__main__product-types" *ngIf="viewType === 'product-types'">
-      <button *ngFor="let type of productTypes$ | async" (click)="selectProductCategory(type)">{{ type }}</button>
-    </div>
-
-    <div class="table-menu__main__products" *ngIf="viewType === 'products'">
-      <button *ngFor="let product of products$ | async" (click)="addProductToCommands(product)" class="btn-menu">{{
-        product.name }}</button>
+    <div class="table-menu__main__content">
+      <div class="table-menu__main__content__product-types" *ngIf="viewType === 'product-types'">
+        <button *ngFor="let type of productTypes$ | async" (click)="selectProductCategory(type)" class="btn-menu">
+          {{ type }}
+        </button>
+      </div>
+  
+      <div class="table-menu__main__content__products" *ngIf="viewType === 'products'">
+        <button *ngFor="let product of products$ | async" (click)="addProductToCommands(product)" class="btn-menu">
+          {{ product.name }}
+        </button>
+      </div>
     </div>
   </div>
 </div>

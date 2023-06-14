@@ -1,6 +1,7 @@
-<div class="container-full">
+<div class="container-authentication">
+  <h1>ComandApp</h1>
   <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" class="form form-login">
-    <h1>Login de Usuario</h1>
+
     <ng-container *ngIf="invalid">
       <div class="alert alert-danger">
         Usuario o contraseña incorrecta.
