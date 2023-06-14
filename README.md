@@ -41,7 +41,8 @@ Esta aplicación propone una solución sencilla y útil para cualquier trabajado
 
 1. Abre tu navegador web e ingresa a `http://localhost:4200` para acceder al frontend de la aplicación.
 2. Utiliza las funcionalidades proporcionadas, como autenticación de usuarios, manipulación de datos de productos y mesas, etc.
-3. Puedes ver el concepto visual visitando el siguiente figma:https://www.figma.com/proto/3dpjxeoYvT5jebybDhlKGj/Proyecto-Tema-1---Desktop?node-id=39-25&starting-point-node-id=39%3A25
+3. Puedes ver el concepto visual visitando el siguiente figma:
+   https://www.figma.com/proto/3dpjxeoYvT5jebybDhlKGj/Proyecto-Tema-1---Desktop?node-id=39-25&starting-point-node-id=39%3A25
 
 
 ¡Disfruta de ComandApp!
