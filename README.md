@@ -25,17 +25,19 @@ Esta aplicación propone una solución sencilla y útil para cualquier trabajado
   - Swagger
   - JWT
   - JPA
+  - MySQL
 
 
 ## Instalación y configuración
 
 1. Clona este repositorio en tu máquina local.
-2. Asegúrate de tener instalado Node.js y Angular CLI para el frontend, y Java y Maven para el backend.
+2. Asegúrate de tener instalado Node.js y Angular CLI para el frontend, además de Java JDK 1.8 y Maven para el backend.
 3. Configura las variables de entorno necesarias, como las credenciales de la base de datos y las claves JWT.
 4. Ejecuta el comando `npm install` en la carpeta `front/ComandApp/` para instalar las dependencias del frontend.
-5. Ejecuta el comando `mvn install` en la carpeta `back/ComandApp/` para compilar y construir el backend.
-6. Inicia el servidor de desarrollo del frontend ejecutando `ng serve` en la carpeta `frontend/ComandApp/`.
-7. Inicia el backend ejecutando `java -jar nombre-del-archivo.jar` en la carpeta `backend/ComandApp/`.
+5. Ejecuta el comando `mvn install -DskipTests` en la carpeta `back/ComandApp/` para compilar y construir el backend.
+6. Levantar contenedor Base de datos 'docker-compose up -d' en la carpeta 'back/ComandApp'.
+7. Inicia el servidor de desarrollo del frontend ejecutando `ng serve` en la carpeta `front/ComandApp/`.
+8. Inicia el backend ejecutando `java -jar nombre-del-archivo.jar` en la carpeta `back/ComandApp/target`.
 
 ## Uso
 
