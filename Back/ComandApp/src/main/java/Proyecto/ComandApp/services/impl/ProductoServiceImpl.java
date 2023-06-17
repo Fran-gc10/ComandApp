@@ -56,8 +56,7 @@ public class ProductoServiceImpl implements ProductoService {
             throw new NotFoundException(ExceptionConstants.MESSAGE_EXISTENT_PROD);
         }
         Producto prod=Producto.builder().tipo(prodRest.getTipo()).nombre(prodRest.getNombre()).precio(prodRest.getPrecio()).build();
-        prodRepository.save(prod);
-        return modelMapper.map(optionalProd,ProductoRest.class);
+        return modelMapper.map(prodRepository.save(prod),ProductoRest.class);
     }
 
     @Override
@@ -84,8 +83,9 @@ public class ProductoServiceImpl implements ProductoService {
         } catch (EntityNotFoundException entityNotFoundException) {
             throw new NotFoundException(entityNotFoundException.getMessage());
         }
+        Producto prod=prodRepository.getOne(prodId);
         prodRepository.deleteById(prodId);
-        return modelMapper.map(optionalProd,ProductoRest.class);
+        return modelMapper.map(prod,ProductoRest.class);
     }
 
 
