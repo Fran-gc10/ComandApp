@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Landing Page - Servicio TPV</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+  <audio id="miAudio" src="audio.mp3"></audio>
+
+  <header>
+    <h1 onclick="play()">ComandApp</h1>
+    <div class="container">
+      <svg id="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <rect x="20" y="30" width="60" height="60" fill="#1f497d"/>
+        <rect x="25" y="35" width="50" height="50" fill="#fff"/>
+        <line x1="30" y1="40" x2="70" y2="40" stroke="#000" stroke-width="2"/>
+        <line x1="30" y1="45" x2="70" y2="45" stroke="#000" stroke-width="2"/>
+        <line x1="30" y1="50" x2="70" y2="50" stroke="#000" stroke-width="2"/>
+        <line x1="30" y1="55" x2="70" y2="55" stroke="#000" stroke-width="2"/>
+        <line x1="30" y1="60" x2="70" y2="60" stroke="#000" stroke-width="2"/>
+        <line x1="30" y1="65" x2="70" y2="65" stroke="#000" stroke-width="2"/>
+      </svg>
+    </div>
+  </header>
+  
+  <section id="about">
+    <h2>Acerca de nuestro servicio TPV</h2>
+    <p>Brindamos una solución completa de TPV que te permite gestionar fácilmente las transacciones de tu negocio. Nuestro servicio incluye:</p>
+    <ul>
+      <li>Terminal de punto de venta moderno y fácil de usar</li>
+      <li>Integración con diversas formas de pago, como tarjetas de crédito y débito</li>
+      <li>Registro y seguimiento de ventas y transacciones</li>
+      <li>Generación de informes y análisis de datos para tomar decisiones comerciales</li>
+    </ul>
+  </section>
+  
+  <section id="features">
+    <h2>Características destacadas</h2>
+    <ul>
+      <li>Interfaz intuitiva y amigable para los usuarios</li>
+      <li>Compatibilidad con dispositivos móviles y tabletas</li>
+      <li>Seguridad avanzada para proteger la información de tus clientes</li>
+      <li>Integración con sistemas de inventario y gestión de clientes</li>
+    </ul>
+    <br>
+    <div id="miVideo">
+      <video  onclick="stop()" src="video.mp4" controls style="max-width: 230%;"></video>
+    </div>
+
+  </section>
+  
+  <section id="pricing">
+    <h2>Planes y precios</h2>
+    <p>Ofrecemos diferentes planes de precios para adaptarnos a las necesidades de tu negocio:</p>
+    <ul>
+      <li>Plan básico: $X/mes - Incluye funciones esenciales para comenzar.</li>
+      <li>Plan profesional: $Y/mes - Mayor capacidad y características avanzadas.</li>
+      <li>Plan premium: $Z/mes - Todo incluido, soporte prioritario y actualizaciones frecuentes.</li>
+    </ul>
+  </section>
+  
+  <section id="contact">
+    <h2>Contáctanos</h2>
+    <p>Si estás interesado en nuestro servicio TPV o tienes alguna pregunta, completa el formulario a continuación y nos pondremos en contacto contigo pronto:</p>
+    <br>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Nombre" required>
+      <input type="email" name="email" placeholder="Correo electrónico" required>
+      <canvas id="canvas" width="400" height="200"></canvas>
+      <button type="button" onclick="limpiarCanvas()">Limpiar firma</button>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+  
+  <footer>
+    <p>Francisco Gutiérrez Castro &copy; 2023 - ComandApp</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+/* styles.css */
+*{
+  color: #fff;
+}
+
+:root {
+  --main-color: #2c3e50;
+  --light-color-1: #455d7a;
+  --light-color-2: #5e7492;
+  --light-color-3: #788daa;
+  --dark-color-1: #1d2b38;
+  --dark-color-2: #0c141a;
+  --dark-color-3: #00070d;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header, footer{
+  background-color: var(--dark-color-2);
+  text-align: center;
+}
+
+header, section, footer {
+  padding: 20px;
+
+}
+
+header{
+  height: 100vh;
+}
+
+#about{
+  background-color: var(--light-color-3)
+}
+
+#features{
+  background-color: var(--light-color-2)
+}
+
+#pricing{
+  background-color: var(--light-color-1)
+}
+
+#contact{
+  background-color: var(--dark-color-1)
+}
+
+h1{
+  font-size: 10rem;
+}
+
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem;
+}
+
+section#about ul,
+section#features ul,
+section#pricing ul {
+  text-align: left;
+  padding-left: 0;
+  color: #fff;
+}
+
+section#contact form {
+  display: grid;
+  gap: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+section#contact input,
+section#contact textarea,
+section#contact button {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#canvas {
+    border: 1px solid #000;
+    cursor: crosshair;
+    background-color:white;
+    
+}
+
+input{
+  color:black;
+  
+}
+
+button{
+  font-weight: bold;
+  color: white;
+}
+
+#contact-form button[type="button"]{
+background-color:rgb(94, 66, 219);
+}
+
+#contact-form button[type="submit"]{
+  background-color: rgb(23, 186, 23);
+}
+
+video{
+  box-shadow: 0 0 10px rgba(5, 5, 5, 0.5);
+
+}
+
+#miVideo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#logo {
+  width: 30%;
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translate(-12%, -50%);
+  animation: slideIn 2s forwards;
+  opacity: 0;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
