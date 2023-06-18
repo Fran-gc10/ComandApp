@@ -6,10 +6,10 @@
       </div>
       <ul class="table-menu__aside__commanded-products">
         <li *ngFor="let product of commandedProducts">
-          {{ product.name }} - {{ formatCurrency(product.price) }}
+          {{ product.name }} - {{ product.price | formatCurrency }}
         </li>
         <li *ngFor="let product of productsToCommand; let i = index">
-          {{ product.name }} - {{ formatCurrency(product.price) }}
+          {{ product.name }} - {{ product.price | formatCurrency }}
           <button (click)="deleteProduct(i)" type="button" class="btn-delete-product">
             <i class="fas fa-trash-alt"></i>
           </button>
@@ -17,7 +17,9 @@
       </ul>
     </div>
     <div class="table-menu__aside__actions">
-      <button (click)="chargeTable()" class="btn-secondary" type="button">Cobrar</button>
+      <button *ngIf="commandedProducts?.length" (click)="chargeTable()" class="btn-secondary" type="button">
+        Cobrar
+      </button>
       <button (click)="command()" class="btn-secondary" type="button">Comandar</button>
     </div>
   </aside>
@@ -36,7 +38,7 @@
           {{ type }}
         </button>
       </div>
-  
+
       <div class="table-menu__main__content__products" *ngIf="viewType === 'products'">
         <button *ngFor="let product of products$ | async" (click)="addProductToCommands(product)" class="btn-menu">
           {{ product.name }}

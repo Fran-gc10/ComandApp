@@ -1,1 +1,94 @@
-<p>admin works!</p>
+<div class="admin-panel">
+
+  <header>
+    <div class="left">
+      <button (click)="onAddNewProduct()" type="button" class="btn-primary">
+        Añadir Producto
+      </button>
+    </div>
+    <div class="right">
+      <app-mesas-link></app-mesas-link>
+      <app-logout></app-logout>
+    </div>
+  </header>
+
+  <main>
+    <div class="products">
+      <ng-container *ngIf="newProduct">
+        <div class="card">
+          <div class="product adding">
+            <div class="product-title form-control">
+              <input [(ngModel)]="newProduct.name" type="text" placeholder="Nombre del producto">
+            </div>
+            <div class="product-type form-control ">
+              <select [(ngModel)]="newProduct.type">
+                <option *ngFor="let type of productTypes" [value]="type">{{ type | titlecase }}</option>
+              </select>
+            </div>
+            <div class="product-price form-control">
+              <input type="number" [(ngModel)]="newProduct.price" placeholder="Precio">
+            </div>
+          </div>
+          <div class="actions">
+            <button (click)="onCancelNewProduct()" type="button" class="btn-secondary cancel">
+              <i class="fas fa-times"></i>
+            </button>
+            <button (click)="onSaveNewProduct()" type="button" class="btn-secondary save">
+              <i class="fas fa-save"></i>
+            </button>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngFor="let product of products">
+        <div class="card">
+          <ng-container *ngIf="!isProductBeingEdited(product)">
+            <div class="product">
+              <div class="product-title">
+                {{ product.name }}
+              </div>
+              <div class="product-type">
+                {{ product.type | titlecase }}
+              </div>
+              <div class="product-price">
+                {{ product.price | formatCurrency }}
+              </div>
+            </div>
+            <div class="actions">
+              <button (click)="onEditProductClick(product)" type="button" class="btn-secondary edit">
+                <i class="fas fa-pencil-alt"></i>
+              </button>
+              <button (click)="deleteProduct(product)" type="button" class="btn-secondary delete">
+                <i class="fas fa-trash"></i>
+              </button>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="isProductBeingEdited(product) && productEdit">
+            <div class="product editing">
+              <div class="product-title form-control">
+                <input [(ngModel)]="productEdit.name" type="text" placeholder="Nombre del producto">
+              </div>
+              <div class="product-type form-control">
+                <select [(ngModel)]="productEdit.type">
+                  <option *ngFor="let type of productTypes" [value]="type">{{ type | titlecase }}</option>
+                </select>
+              </div>
+              <div class="product-price form-control">
+                <input type="number" [(ngModel)]="product.price" placeholder="Precio">
+              </div>
+            </div>
+            <div class="actions">
+              <button (click)="onCancelEditingProduct()" type="button" class="btn-secondary cancel">
+                <i class="fas fa-times"></i>
+              </button>
+              <button (click)="onSaveEditedProduct()" type="button" class="btn-secondary save">
+                <i class="fas fa-save"></i>
+              </button>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+  </main>
+
+</div>

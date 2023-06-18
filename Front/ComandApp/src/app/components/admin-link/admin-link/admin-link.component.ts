@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./admin-link.component.scss']
 })
 export class AdminLinkComponent {
-  isAdmin = false;
+  isAdmin = false;;
 
   constructor(private authService: AuthService) {
     this.isAdmin = this.authService.isAdmin();

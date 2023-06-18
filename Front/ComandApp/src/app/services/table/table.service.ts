@@ -4,9 +4,9 @@ import { Observable, map } from 'rxjs';
 import Table from 'src/app/models/table.model';
 import { environment } from 'src/environments/environment';
 import Product from 'src/app/models/product.model';
-import TablesResponseInterface from '../../models/tables-response.interface';
-import TableResponseInterface from 'src/app/models/table-response.interface';
 import TableProduct from 'src/app/models/table-product.model';
+import TablesResponse from 'src/app/models/responses/tables-response.interface';
+import TableResponse from 'src/app/models/responses/table-response.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -17,8 +17,8 @@ export class TableService {
   constructor(private http: HttpClient) {}
 
   public getTables(): Observable<Table[]> {
-    return this.http.get<TablesResponseInterface>(this.path).pipe(
-      map((res: TablesResponseInterface) => {
+    return this.http.get<TablesResponse>(this.path).pipe(
+      map((res) => {
         const tables = res?.data?.map(
           (table) => new Table(table.id, table.numero)
         );
@@ -28,8 +28,8 @@ export class TableService {
   }
 
   public getTable(id: number): Observable<TableProduct> {
-    return this.http.get<TableResponseInterface>(`${this.path}/${id}`).pipe(
-      map((res: TableResponseInterface) => {
+    return this.http.get<TableResponse>(`${this.path}/${id}`).pipe(
+      map((res) => {
         const table = res?.data;
         return new TableProduct(
           table.id,
@@ -45,12 +45,12 @@ export class TableService {
     products: Product[]
   ): Observable<TableProduct> {
     return this.http
-      .put<TableResponseInterface>(
+      .put<TableResponse>(
         `${this.path}/Comandar/${tableId}`,
         Product.transformProductsToProductos(products)
       )
       .pipe(
-        map((res: TableResponseInterface) => {
+        map((res) => {
           const table = res?.data;
           return new TableProduct(
             table.id,
@@ -63,9 +63,9 @@ export class TableService {
 
   public chargeTable(tableId: number) {
     return this.http
-      .put<TableResponseInterface>(`${this.path}/CobrarMesa/${tableId}`, {})
+      .put<TableResponse>(`${this.path}/CobrarMesa/${tableId}`, {})
       .pipe(
-        map((res: TableResponseInterface) => {
+        map((res) => {
           const table = res?.data;
           return new TableProduct(
             table.id,

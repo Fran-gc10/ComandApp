@@ -56,13 +56,6 @@ export class TableComponent implements OnInit {
     }
   }
 
-  formatCurrency(value: number): string {
-    return value.toLocaleString('es-ES', {
-      style: 'currency',
-      currency: 'EUR',
-    });
-  }
-
   addProductToCommands(product: Product) {
     this.productsToCommand.push(product);
   }

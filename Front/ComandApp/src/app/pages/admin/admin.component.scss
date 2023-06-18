@@ -1,0 +1,95 @@
+:host {
+  height: 100%;
+}
+.admin-panel {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    .left, .right {
+      flex: 1;
+    }
+    .right {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+  }
+  main {
+    flex: 1;
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+
+      .card {
+        box-shadow: 0 0 0.5rem black;
+        border-radius: .25rem;
+        width: 12rem;
+        height: 12rem;
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: #40555c;
+        color: white;
+        .product {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+          justify-content: space-evenly;
+          height: 100%;
+          padding: .75rem 1.5rem .75rem 1.5rem;
+          border-radius: .25rem .25rem 0 0;
+          background-color: #9ed1e1;
+          color: black;
+          &.adding, &.editing {
+            .form-control {
+              background-color: #e0e0e0;
+              border-radius: .25rem;
+              display: flex;
+              input, select {
+                width: 100%;
+              }
+            }
+          }
+        }
+        .actions {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+          gap: 0.6rem;
+          padding: .5rem 1.5rem .5rem 1.5rem;
+
+          .btn-secondary {
+            padding: 0.5rem 0.7rem;
+            min-width: 0;
+            border-radius: .25rem;
+            &.delete {
+              background-color: #c3480d;
+            }
+            &.edit {
+              background-color: #ffc004;
+              color: black;
+            }
+            &.save {
+              background-color: #4caf50;
+              color: black;
+            }
+            &.cancel {
+              background-color: #e0e0e0;
+              color: black;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}

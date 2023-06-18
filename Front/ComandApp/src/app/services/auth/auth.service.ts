@@ -1,23 +1,22 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { Observable, map } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import LoginResponse from 'src/app/models/login-response.interface';
+import LoginResponse from 'src/app/models/responses/login-response.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private authUrl = environment.host + '/auth';
-  private isAdminState = false;
   public logged;
 
   constructor(
     private http: HttpClient,
     private router: Router,
-    private helper: JwtHelperService
+    private jwt: JwtHelperService
   ) {
     this.logged = signal(this.isLogged);
   }
@@ -30,9 +29,10 @@ export class AuthService {
       })
       .pipe(
         map((data: LoginResponse) => {
-          this.isAdminState = data.authorities.some(
+          const isAdmin = data.authorities.some(
             (authority) => authority.authority === 'ROLE_ADMIN'
           );
+          if (isAdmin) this.setAdminUser();
           this.setToken(data.token);
           this.router.navigateByUrl('mesas').catch((err) => console.log(err));
           this.logged.set(true);
@@ -41,7 +41,7 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('token');
+    localStorage.clear();
     this.logged.set(false);
     this.router.navigateByUrl('login').catch((err) => console.log(err));
   }
@@ -50,7 +50,7 @@ export class AuthService {
     const userToken = this.getToken();
     if (!userToken) return false;
 
-    const isExpired = this.helper.isTokenExpired(userToken);
+    const isExpired = this.jwt.isTokenExpired(userToken);
     if (isExpired) this.logout();
 
     return !isExpired;
@@ -59,7 +59,7 @@ export class AuthService {
   getLoggedUserId(): number | undefined {
     const token = this.getToken();
     if (!token) return undefined;
-    const decodedToken = this.helper.decodeToken(token);
+    const decodedToken = this.jwt.decodeToken(token);
     if (!decodedToken) return undefined;
     return decodedToken.userId;
   }
@@ -72,7 +72,11 @@ export class AuthService {
     return localStorage.getItem('token');
   }
 
-  isAdmin(): boolean {
-    return this.isAdminState;
+  private setAdminUser() {
+    localStorage.setItem('isUserAnAdmin', 'true');
+  }
+
+  isAdmin() {
+    return localStorage.getItem('isUserAnAdmin') === 'true';
   }
 }

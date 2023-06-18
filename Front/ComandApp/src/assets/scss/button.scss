@@ -1,11 +1,20 @@
-.btn-menu, .btn-primary, .btn-secondary {
+.btn-menu,
+.btn-primary,
+.btn-secondary {
   text-decoration: none;
+  font-weight: bold;
+  cursor: pointer; 
 }
 
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
   min-width: 5rem;
-  text-align: center;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
+  min-height: 2.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.85rem;
 }
 
 .btn-menu {

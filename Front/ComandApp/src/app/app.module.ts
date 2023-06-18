@@ -16,6 +16,7 @@ import { TableComponent } from './pages/table/table.component';
 import { MesasLinkComponent } from './components/mesas-link/mesas-link.component';
 import { AdminLinkComponent } from './components/admin-link/admin-link/admin-link.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { FormatCurrencyPipe } from './pipes/format-currency/format-currency.pipe';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { AdminComponent } from './pages/admin/admin.component';
     MesasLinkComponent,
     AdminLinkComponent,
     AdminComponent,
+    FormatCurrencyPipe,
   ],
   imports: [
     BrowserModule,
